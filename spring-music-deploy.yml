@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: spring-music-app
-        image: tkgi-spring-music:latest
+        image: savmas22/tkgi-spring-music-pipeline:latest
         imagePullPolicy: "Always"
         ports:
           - containerPort: 8080
