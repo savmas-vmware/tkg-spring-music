@@ -6,7 +6,7 @@ metadata:
     name: spring-music-deploy
     app: spring-music-app
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
       name: spring-music-pod
