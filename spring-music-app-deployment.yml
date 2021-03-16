@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-music-deploy
+  labels:
+    name: spring-music-deploy
+    app: spring-music-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: spring-music-pod
+      app: spring-music-app
+  template:
+    metadata:
+      name: spring-music-pod
+      labels:
+        name: spring-music-pod
+        app: spring-music-app
+    spec:
+      containers:
+      - name: spring-music-app
+        image: harbor.tanzu.platformdemosm.com/library/tkg-spring-music:1.0
+        imagePullPolicy: "Always"
+        ports:
+          - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-music-ci-service
+  labels:
+    name: spring-music-ci-service
+    app: spring-music-app
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    name: spring-music-pod
+    app: spring-music-app
