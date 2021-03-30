@@ -29,9 +29,9 @@ pipeline {
         stage('Cleanup') { 
             steps {
                 echo 'Remove local images and tags...'
-                sh 'docker image rm tkgi-spring-music-pipeline:1.0'
-                sh 'docker image rm savmas22/tkgi-spring-music-pipeline:${BUILD_NUMBER}'
-                sh 'docker image rm savmas22/tkgi-spring-music-pipeline:latest'
+                sh 'docker image rm tkg-spring-music-pipeline:1.0'
+                sh 'docker image rm savmas22/tkg-spring-music-pipeline:${BUILD_NUMBER}'
+                sh 'docker image rm savmas22/tkg-spring-music-pipeline:latest'
             }
         }
     }
