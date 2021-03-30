@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: spring-music-app
-        image: harbor.tanzu.platformdemosm.com/library/tkg-spring-music:1.0
+        image: harbor.tanzu.platformdemosm.com/library/tkg-spring-music
         imagePullPolicy: "Always"
         ports:
           - containerPort: 8080
