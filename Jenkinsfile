@@ -20,7 +20,8 @@ pipeline {
             steps {
                 echo 'Deploy application to TKG...'
                 sh 'export KUBECONFIG=/var/lib/jenkins/kubeconfig'
-                sh 'sudo kubectl config use-context sm-tkg-demo-cluster-admin@sm-tkg-demo-cluster --kubeconfig /var/lib/jenkins/kubeconfig'
+                sh 'pwd'
+                sh 'kubectl config use-context sm-tkg-demo-cluster-admin@sm-tkg-demo-cluster --kubeconfig kubeconfig'
                 sh 'kubectl delete deployment spring-music-deploy'
                 sh 'kubectl delete service spring-music-ci-service'
                 sh 'kubectl apply -f spring-music-app-deployment.yml'
