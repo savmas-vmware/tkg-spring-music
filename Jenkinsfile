@@ -19,7 +19,10 @@ pipeline {
         stage('Deploy to TKG Cluster') { 
             steps {
                 echo 'Deploy application to TKG...'
-  
+                sh 'export KUBECONFIG=~/.kube/config'
+                sh 'kubectl config use-context sm-tkg-demo-cluster-admin@sm-tkg-demo-cluster'
+                sh 'kubectl delete deployment spring-music-deploy'
+                sh 'kubectl apply -f spring-music-deploy.yml'
             }
         }
         stage('Cleanup') { 
