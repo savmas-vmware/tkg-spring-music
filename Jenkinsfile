@@ -20,8 +20,8 @@ pipeline {
             steps {
                 echo 'Deploy application to TKG...'
                 sh 'kubectl config use-context sm-tkg-demo-cluster-admin@sm-tkg-demo-cluster --kubeconfig kubeconfig'
-                sh 'kubectl -n tanzu-system-ingress delete spring-music-deploy'
-                sh 'kubectl -n tanzu-system-ingress delete spring-music-ci-service'
+                sh 'kubectl -n tanzu-system-ingress delete deployment spring-music-deploy'
+                sh 'kubectl -n tanzu-system-ingress delete service spring-music-ci-service'
                 sh 'kubectl -n tanzu-system-ingress apply -f spring-music-app-deployment.yml'
             }
         }
