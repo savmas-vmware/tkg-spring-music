@@ -19,8 +19,8 @@ pipeline {
         stage('Deploy to TKG Cluster') { 
             steps {
                 echo 'Deploy application to TKG...'
-                sh 'kubectl config use-context sm-tkg-demo-cluster-admin@sm-tkg-demo-cluster --kubeconfig kubeconfig'
-                sh 'kubectl -n tanzu-system-ingress apply -f spring-music-app-deployment.yml'
+                sh 'sudo kubectl config use-context sm-tkg-demo-cluster-admin@sm-tkg-demo-cluster --kubeconfig kubeconfig'
+                sh 'sudo kubectl -n tanzu-system-ingress apply -f spring-music-app-deployment.yml'
             }
         }
         stage('Cleanup') { 
