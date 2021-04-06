@@ -19,7 +19,7 @@ pipeline {
         stage('Deploy to TKG Cluster') { 
             steps {
                 echo 'Deploy application to TKG...'
-                sh 'kubectl config use-context sm-tkg-demo-cluster-admin@sm-tkg-demo-cluster --kubeconfig kubeconfig'
+                sh 'kubectl config use-context sm-tkg-demo-cluster-admin@sm-tkg-demo-cluster --kubeconfig /home/ubuntu/.kube-tkg/config'
                 sh 'kubectl -n tanzu-system-ingress apply -f spring-music-app-deployment.yml'
             }
         }
