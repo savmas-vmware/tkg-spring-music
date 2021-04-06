@@ -13,7 +13,7 @@ pipeline {
                 sh 'docker login harbor.tanzu.platformdemosm.com -u admin -p harbor_admin'
                 sh 'docker tag tkg-spring-music-pipeline:1.0 harbor.tanzu.platformdemosm.com/library/tkg-spring-music:${BUILD_NUMBER}'
                 sh 'docker tag tkg-spring-music-pipeline:1.0 harbor.tanzu.platformdemosm.com/library/tkg-spring-music:latest'
-                sh 'docker push harbor.tanzu.platformdemosm.com/library/tkg-spring-music:${BUILD_NUMBER}'
+                sh 'docker push harbor.tanzu.platformdemosm.com/library/tkg-spring-music:latest'
             }
         }
         stage('Deploy to TKG Cluster') { 
